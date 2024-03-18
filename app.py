@@ -1,14 +1,12 @@
 from flask import Flask, Response, request
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, String
-import _mysql_connector
 import json
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:16042003@localhost/crud'
 
-db = SQLAlchemy(app)
+db = SQLAlchemy(app) #from app import db / db.create_all() . para criar o banco
 app.app_context().push()
 
 class Usuario(db.Model):
